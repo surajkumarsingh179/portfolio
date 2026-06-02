@@ -29,17 +29,22 @@ const useWakaTimeStats = (username: string) => {
 };
 
 export default function About() {
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'surajkumarsingh179';
+
   const {
     data: githubStats,
     isLoading: githubLoading,
     error: githubError,
-  } = useGitHubStats('fileng87');
+  } = useGitHubStats(username);
+
+  // Use LeetCode username for the stats card. Prefer NEXT_PUBLIC_LEETCODE_USERNAME, fallback to existing WAKATIME env, default to Shadow_og (user provided).
+  const wakaUsername = process.env.NEXT_PUBLIC_LEETCODE_USERNAME || process.env.NEXT_PUBLIC_WAKATIME_USERNAME || 'Shadow_og';
 
   const {
     data: wakaStats,
     isLoading: wakaLoading,
     error: wakaError,
-  } = useWakaTimeStats('fileng87');
+  } = useWakaTimeStats(wakaUsername);
 
   const cardClassName =
     'relative border-pink-300/50 dark:border-cyan-900/50 bg-white/10 dark:bg-gray-800/10 backdrop-blur-xs shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(0,0,0,0.3)]';

@@ -1,4 +1,4 @@
-import type { WakaTimeData } from '@/app/api/wakatime/stats/route';
+import type { LeetCodeData } from '@/app/api/leetcode/stats/route';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn, formatWakaTime } from '@/lib/utils';
@@ -17,7 +17,7 @@ interface GithubStatsData {
 interface StatsCardsProps {
   cardClassName: string;
   githubStats: GithubStatsData | null;
-  wakaStats: WakaTimeData;
+  wakaStats: LeetCodeData;
   githubLoading: boolean;
   wakaLoading: boolean;
   githubError: Error | null;
@@ -37,106 +37,111 @@ export function StatsCards({
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {/* Skills Card */}
       <Card className={cn(cardClassName, 'h-full')}>
-        <CardHeader>
-          <CardTitle>./skills.md</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 gap-3 overflow-hidden">
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Frontend:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>React</li>
-                <li>Next.js</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-                <li>Vite</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Backend & API:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>Express</li>
-                <li>NestJS</li>
-                <li>FastAPI</li>
-                <li>REST API</li>
-                <li>WebSocket</li>
-                <li>GraphQL</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Database:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>PostgreSQL</li>
-                <li>MongoDB</li>
-                <li>Redis</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Infrastructure:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>Linux</li>
-                <li>Proxmox</li>
-                <li>Docker</li>
-                <li>Git</li>
-                <li>Grafana</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Security & Network:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>SSL/TLS</li>
-                <li>OAuth/JWT</li>
-                <li>TCP/IP</li>
-                <li>VPN</li>
-                <li>Firewall</li>
-                <li>Load Balancer</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">AI:</h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>LangChain</li>
-                <li>LangGraph</li>
-                <li>Prompt Engineering</li>
-                <li>MCP</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">
-                Learning:
-              </h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>CI/CD</li>
-                <li>Kubernetes</li>
-                <li>AWS/Azure</li>
-                <li>Vue.js</li>
-                <li>PHP</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 font-mono text-sm font-semibold">Tools:</h4>
-              <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
-                <li>VS Code</li>
-                <li>Postman</li>
-                <li>Discord</li>
-                <li>Cursor</li>
-              </ul>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+  <CardHeader>
+    <CardTitle>./skills.md</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="grid grid-cols-2 gap-3 overflow-hidden">
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Frontend:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>React</li>
+          <li>Next.js</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>Streamlit</li>  {/* clv-streamlit-app */}
+          <li>HTML/CSS</li>   {/* cybersec_mcqs */}
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Backend & API:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>Django</li>       {/* django-project */}
+          <li>FastAPI</li>
+          <li>REST API</li>
+          <li>WebSocket</li>
+          <li>GraphQL</li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Data & ML:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>Python</li>
+          <li>Pandas</li>       {/* clv-streamlit-app */}
+          <li>RFM Analysis</li> {/* clv-streamlit-app */}
+          <li>BG/NBD Model</li> {/* clv-streamlit-app */}
+          <li>Scikit-learn</li>
+          <li>Statistical Modeling</li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">AI:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>LangChain</li>
+          <li>LangGraph</li>
+          <li>Prompt Engineering</li>
+          <li>MCP</li>
+          <li>NLP / Text Analysis</li> {/* plagiarism */}
+          <li>Sustainability AI</li>   {/* ai-fashion-sustainability-predictor */}
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Embedded & Hardware:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>Arduino (C++)</li>   {/* speeddetection */}
+          <li>IR Sensors</li>      {/* speeddetection */}
+          <li>I2C / LCD Display</li>
+          <li>Serial Communication</li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Database:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+          <li>Redis</li>
+          <li>CSV / Data Pipelines</li> {/* clv-streamlit-app */}
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Infrastructure:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>Linux</li>
+          <li>Docker</li>
+          <li>Proxmox</li>
+          <li>Git</li>
+          <li>Grafana</li>
+          <li>Dev Containers</li> {/* .devcontainer in clv-streamlit-app */}
+        </ul>
+      </div>
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Security & Network:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>SSL/TLS</li>
+          <li>OAuth / JWT</li>
+          <li>TCP/IP</li>
+          <li>Firewall</li>
+          <li>Load Balancer</li>
+          <li>MCQ/Quiz Systems</li> {/* cybersec_mcqs */}
+        </ul>
+      </div>
+    </div>
+
+    <div className="mt-4 grid grid-cols-2 gap-3">
+      
+      <div>
+        <h4 className="mb-2 font-mono text-sm font-semibold">Learning:</h4>
+        <ul className="list-inside list-disc text-sm text-gray-700 dark:text-gray-300">
+          <li>CI/CD</li>
+          <li>Kubernetes</li>
+          <li>AWS / Azure</li>
+          <li>NestJS</li>
+          <li>Vue.js</li>
+        </ul>
+      </div>
+    </div>
+  </CardContent>
+</Card>
 
       {/* Right column with two stacked cards */}
       <div className="flex flex-col gap-4">
@@ -284,7 +289,7 @@ export function StatsCards({
                   {wakaError ? (
                     <div className="flex justify-center py-4">
                       <span className="text-red-500 text-sm">
-                        Failed to load WakaTime stats
+                        Failed to load LeetCode stats
                       </span>
                     </div>
                   ) : !wakaStats ? (
@@ -301,50 +306,41 @@ export function StatsCards({
                           className="flex items-center justify-between"
                         >
                           <span className="font-mono text-base text-gray-600 dark:text-gray-400">
-                            Total Time
+                            Total Solved
                           </span>
                           <span className="font-mono text-lg text-pink-500 dark:text-cyan-500">
-                            {formatWakaTime(wakaStats.human_readable_total)}
+                            {wakaStats.totalSolvedStr}
                           </span>
                         </motion.div>
-                        <motion.div
-                          variants={itemVariants}
-                          className="flex items-center justify-between"
-                        >
-                          <span className="font-mono text-base text-gray-600 dark:text-gray-400">
-                            Daily Average
-                          </span>
-                          <span className="font-mono text-lg text-pink-500 dark:text-cyan-500">
-                            {formatWakaTime(
-                              wakaStats.human_readable_daily_average
-                            )}
-                          </span>
-                        </motion.div>
-                        <motion.div
-                          variants={itemVariants}
-                          className="flex items-center justify-between"
-                        >
-                          <span className="font-mono text-base text-gray-600 dark:text-gray-400">
-                            Active Days
-                          </span>
-                          <span className="font-mono text-lg text-pink-500 dark:text-cyan-500">
-                            {wakaStats.days_minus_holidays}d
-                          </span>
-                        </motion.div>
-                        {wakaStats.languages.slice(0, 3).map((lang, index) => (
+
+                        {(wakaStats.acSubmissionNum || []).filter(a => a.difficulty !== 'All').map((stat, idx) => (
                           <motion.div
-                            key={lang.name + index}
+                            key={stat.difficulty + idx}
                             variants={itemVariants}
                             className="flex items-center justify-between"
                           >
                             <span className="font-mono text-base text-gray-600 dark:text-gray-400">
-                              {lang.name}
+                              {stat.difficulty}
                             </span>
                             <span className="font-mono text-lg text-pink-500 dark:text-cyan-500">
-                              {formatWakaTime(lang.text)}
+                              {stat.count}
                             </span>
                           </motion.div>
                         ))}
+
+                        {wakaStats.ranking ? (
+                          <motion.div
+                            variants={itemVariants}
+                            className="flex items-center justify-between"
+                          >
+                            <span className="font-mono text-base text-gray-600 dark:text-gray-400">
+                              Global Ranking
+                            </span>
+                            <span className="font-mono text-lg text-pink-500 dark:text-cyan-500">
+                              {wakaStats.ranking}
+                            </span>
+                          </motion.div>
+                        ) : null}
                       </>
                     )
                   )}

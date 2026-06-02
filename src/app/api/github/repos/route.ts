@@ -74,8 +74,19 @@ const graphqlWithAuth = graphql.defaults({
   },
 });
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    if (!process.env.GITHUB_TOKEN) {
+      console.error('GITHUB_TOKEN is not set in the environment');
+      return NextResponse.json(
+        { error: 'Server misconfiguration: GITHUB_TOKEN not set' },
+        { status: 500 }
+      );
+    }
+    const { searchParams } = new URL(request.url);
+    const username =
+      searchParams.get('username') || process.env.GITHUB_USERNAME || 'surajkumarsingh179';
+
     const { user } = await graphqlWithAuth<{
       user: {
         avatarUrl: string;
@@ -122,7 +133,7 @@ export async function GET() {
           }>;
         };
       };
-    }>(GRAPHQL_QUERY, { login: 'fileng87' });
+    }>(GRAPHQL_QUERY, { login: username });
 
     // 生成过去90天的日期数组
     const last90Days = Array.from({ length: 90 }, (_, i) => {
@@ -204,6 +215,12 @@ export async function GET() {
     }
     if (error.response) {
       console.error('Response status:', error.response.status);
+      if (error.response.status === 401) {
+        return NextResponse.json(
+          { error: 'Invalid or expired GitHub token (401)' },
+          { status: 401 }
+        );
+      }
     }
     return NextResponse.json(
       { error: 'Failed to fetch repositories', details: error.message },

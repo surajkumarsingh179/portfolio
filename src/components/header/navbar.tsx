@@ -35,12 +35,12 @@ const navLinks: { title: string; url: string }[] = [
 const socialLinks: { title: string; url: string; icon: JSX.Element }[] = [
   {
     title: 'GitHub',
-    url: 'https://github.com/fileng87',
+    url: 'https://github.com/surajkumarsingh179',
     icon: <FaGithub className="size-4" />,
   },
   {
     title: 'Twitter / X',
-    url: 'https://x.com/fileng87',
+    url: 'https://x.com/surajkumarsingh179',
     icon: <FaXTwitter className="size-4" />,
   },
   {

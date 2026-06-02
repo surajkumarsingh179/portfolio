@@ -5,6 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatWakaTime(timeStr: string) {
-  return timeStr.replace(/ mins?/, 'm').replace(' hrs', 'h');
+export function formatWakaTime(timeStr?: string) {
+  if (!timeStr) {
+    return '0m';
+  }
+
+  return timeStr.replace(/ mins?/, 'm').replace(/ hrs?/, 'h');
 }

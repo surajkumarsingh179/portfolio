@@ -59,6 +59,13 @@ const graphqlWithAuth = graphql.defaults({
 
 export async function GET(request: Request) {
   try {
+    if (!process.env.GITHUB_TOKEN) {
+      console.error('GITHUB_TOKEN is not set in the environment');
+      return NextResponse.json(
+        { error: 'Server misconfiguration: GITHUB_TOKEN not set' },
+        { status: 500 }
+      );
+    }
     const { searchParams } = new URL(request.url);
     const username = searchParams.get('username');
 
@@ -140,8 +147,25 @@ export async function GET(request: Request) {
     };
 
     return NextResponse.json({ stats });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error fetching GitHub stats:', error);
+    // Handle authentication errors from GitHub explicitly
+    const status =
+      typeof error === 'object' &&
+      error !== null &&
+      'response' in error &&
+      typeof error.response === 'object' &&
+      error.response !== null &&
+      'status' in error.response
+        ? error.response.status
+        : undefined;
+
+    if (status === 401) {
+      return NextResponse.json(
+        { error: 'Invalid or expired GitHub token (401)' },
+        { status: 401 }
+      );
+    }
     return NextResponse.json(
       { error: 'Failed to fetch GitHub stats' },
       { status: 500 }

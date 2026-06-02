@@ -12,22 +12,22 @@ import Link from 'next/link';
 const socialLinks = [
   {
     title: 'GitHub',
-    url: 'https://github.com/fileng87',
+    url: 'https://github.com/surajkumarsingh179',
     icon: <FaGithub className="size-5" />,
   },
   {
     title: 'Twitter / X',
-    url: 'https://x.com/fileng87',
+    url: 'https://x.com/Surajkumar74800',
     icon: <FaXTwitter className="size-5" />,
   },
   {
     title: 'YouTube',
-    url: 'https://www.youtube.com/channel/UC-4_DC84v16kkJHEiqFQa0w',
+    url: 'https://www.youtube.com/@Mr_SHADOW_yt17',
     icon: <FaYoutube className="size-5" />,
   },
   {
     title: 'Email',
-    url: 'mailto:oscarcoll.930714@gmail.com',
+    url: 'mailto:surajsinghchauhan1709@gmail.com',
     icon: <Mail className="size-5" />,
   },
 ];
@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 sm:gap-6 md:flex-row">
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="text-lg font-bold sm:text-xl">
-              WenNya
+              Suraj Singh
             </Link>
             <p className="mt-1 text-xs text-muted-foreground sm:mt-2 sm:text-sm">
               © {currentYear} All rights reserved
@@ -67,11 +67,11 @@ export default function Footer() {
               Made with ❤️ by{' '}
               <Link
                 className="transition-colors hover:text-pink-500 hover:underline dark:hover:text-cyan-400"
-                href="https://github.com/fileng87"
+                href="https://github.com/surajkumarsingh179"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @fileng87
+                @surajkumarsingh179
               </Link>
             </p>
           </div>

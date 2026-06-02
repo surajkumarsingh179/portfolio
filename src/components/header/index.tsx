@@ -40,7 +40,7 @@ export default function Header() {
         {/* 左側 */}
         <div className="flex items-center justify-start">
           <Link href="/" className="text-xl font-bold">
-            WenNya
+            Suraj Singh
           </Link>
         </div>
 

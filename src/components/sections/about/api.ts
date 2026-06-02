@@ -10,7 +10,8 @@ export async function fetchGitHubStats(username: string) {
 }
 
 export async function fetchWakaTimeStats(username: string) {
-  const response = await fetch(`/api/wakatime/stats?username=${username}`);
+  // This function now returns LeetCode stats (re-using the wakatime callsite)
+  const response = await fetch(`/api/leetcode/stats?username=${username}`);
   const data = await response.json();
 
   if (!response.ok) {

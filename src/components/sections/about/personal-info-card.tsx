@@ -23,6 +23,7 @@ export function PersonalInfoCards({ cardClassName }: PersonalInfoCardProps) {
                   {/* 頭像容器 */}
                   <div className="absolute inset-2 rounded-full bg-pink-50/50 dark:bg-gray-800/50 overflow-hidden">
                     <Avatar
+                      src="/avatar.jpg"
                       email="oscarcoll.930714@gmail.com"
                       className="size-full transition-transform duration-300 group-hover:scale-105"
                     />
@@ -56,33 +57,44 @@ export function PersonalInfoCards({ cardClassName }: PersonalInfoCardProps) {
 
           {/* Personal Info Section */}
           <div className="flex-1 space-y-3 text-gray-700 dark:text-gray-300">
-            <p>
-              🤖{' '}
-              <span className="font-mono text-pink-500 dark:text-cyan-500">
-                奇怪東西研究員
-              </span>{' '}
-              -
-              就是會去搞一些很奇怪的東西，像會罵人的機器人什麼的。看到有趣的東西就想玩玩看，反正閒著也是閒著。
-            </p>
-            <p>
-              🎨{' '}
-              <span className="font-mono text-pink-500 dark:text-cyan-500">
-                偶爾畫家
-              </span>{' '}
-              -
-              有時候手會癢想畫畫，但就真的只是偶爾。而且我想畫才畫，所以不要叫我畫圖，我會裝死。
-            </p>
-            <p>
-              ✨{' '}
-              <span className="font-mono text-pink-500 dark:text-cyan-500">
-                完美主義強迫症患者
-              </span>{' '}
-              - 做東西的時候每個細節都要調到完美，不管是 code 還是
-              UI，不調好就會很不舒服。
-            </p>
-            <p className="text-right text-sm text-gray-500 dark:text-gray-400">
-              文筆很爛但 code 還可以(也許)的工程師 - 2025/06/17
-            </p>
+           <p>
+  🤖{' '}
+  <span className="font-mono text-pink-500 dark:text-cyan-500">
+    Weird Tech Researcher
+  </span>{' '}
+  -
+  I like experimenting with weird and interesting things, like making funny AI bots or unusual projects. If something looks cool, I’ll probably try it just for fun.
+</p>
+<p>
+  🤖{' '}
+  <span className="font-mono text-pink-500 dark:text-cyan-500">
+    AI/ML Explorer
+  </span>{' '}
+  -
+  Passionate about Artificial Intelligence, Machine Learning, and building cool projects that solve real-world problems.
+</p>
+
+<p>
+  💻{' '}
+  <span className="font-mono text-pink-500 dark:text-cyan-500">
+    Tech Enthusiast
+  </span>{' '}
+  -
+  Always exploring coding, ethical hacking, and new technologies to sharpen my skills and create impactful things.
+</p>
+
+<p>
+  🚀{' '}
+  <span className="font-mono text-pink-500 dark:text-cyan-500">
+    Future Builder
+  </span>{' '}
+  -
+  Focused on becoming better every day through learning, projects, and turning ideas into reality.
+</p>
+
+<p className="text-right text-sm text-gray-500 dark:text-gray-400">
+  AIML Student | Building, Learning & Growing -
+</p>
           </div>
         </div>
       </CardContent>

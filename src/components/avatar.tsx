@@ -5,12 +5,14 @@ import md5 from 'md5';
 interface AvatarProps {
   className?: string;
   email: string;
+  src?: string;
   size?: number;
 }
 
-export function Avatar({ className, email, size = 400 }: AvatarProps) {
+export function Avatar({ className, email, src, size = 400 }: AvatarProps) {
   const gravatarHash = md5(email.toLowerCase().trim());
-  const gravatarUrl = `https://www.gravatar.com/avatar/${gravatarHash}?s=${size}`;
+  const imageSrc =
+    src || `https://www.gravatar.com/avatar/${gravatarHash}?s=${size}`;
 
   return (
     <div
@@ -20,7 +22,7 @@ export function Avatar({ className, email, size = 400 }: AvatarProps) {
       )}
     >
       <motion.img
-        src={gravatarUrl}
+        src={imageSrc}
         alt="Avatar"
         className="size-full object-cover"
         loading="lazy"

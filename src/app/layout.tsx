@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'WenNya',
+  title: 'suraj',
   description: "LeNg87's personal website",
 };
 

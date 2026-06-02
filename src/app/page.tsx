@@ -8,10 +8,17 @@ import Hero from '@/components/sections/hero';
 import Projects from '@/components/sections/projects';
 
 export default function Home() {
+  // Background effects can be enabled explicitly by setting
+  // NEXT_PUBLIC_DISABLE_BG=0 or NEXT_PUBLIC_ENABLE_BG=1. By default
+  // keep effects disabled to avoid heavy rendering during development.
+  const disableBg = process.env.NEXT_PUBLIC_DISABLE_BG
+    ? process.env.NEXT_PUBLIC_DISABLE_BG === '1'
+    : true;
+
   return (
     <>
       <Header />
-      <BackgroundEffects />
+      {!disableBg && <BackgroundEffects />}
       <main className="relative">
         <section id="hero">
           <Hero />
@@ -21,7 +28,7 @@ export default function Home() {
           <About />
         </section>
 
-        <Marquee text="AMBATUKAM" />
+        <Marquee text="lets code lets cook" />
 
         <section id="projects">
           <Projects />

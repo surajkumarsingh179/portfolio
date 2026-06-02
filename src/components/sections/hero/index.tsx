@@ -172,7 +172,7 @@ export default function Hero() {
               : 'translate-y-8 opacity-0'
           )}
         >
-          Ctrl+C Ctrl+V Developer
+          software Developer
         </div>
 
         {/* 滾動指示器改用 Tailwind */}
